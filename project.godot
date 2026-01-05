@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Squash The Creeps"
-config/features=PackedStringArray("4.6", "Double Precision", "Forward Plus")
+run/main_scene="uid://mi508kn0ffh4"
+config/features=PackedStringArray("4.6", "C#", "Double Precision", "Forward Plus")
 config/icon="uid://nev7b6ohgeo"
 
 [dotnet]
