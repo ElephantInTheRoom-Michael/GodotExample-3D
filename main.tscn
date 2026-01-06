@@ -29,6 +29,8 @@ MobScene = ExtResource("2_h2yge")
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=1796962420]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_layer = 4
+collision_mask = 0
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1965299794]
@@ -42,6 +44,8 @@ transform = Transform3D(1, 0, 0, 0, -0.4999999999999998, 0.8660254037844387, 0, 
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=1234525862 instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.412566379668105, 0)
+collision_mask = 6
 
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=1541177262]
 transform = Transform3D(1, 0, 0, 0, 0.7071067811865476, 0.7071067811865475, 0, -0.7071067811865475, 0.7071067811865476, 0, 0, 1)

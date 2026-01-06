@@ -15,6 +15,18 @@ public partial class Player : CharacterBody3D
     /// </summary>
     [Export(PropertyHint.None, "suffix:m/s\u00b2")]
     public int FallAcceleration { get; set; } = 75;
+    
+    /// <summary>
+    /// Vertical velocity applied when jumping
+    /// </summary>
+    [Export(PropertyHint.None, "suffix:m/s")]
+    public int JumpImpulse { get; set; } = 20;
+    
+    /// <summary>
+    /// Vertical velocity applied when bouncing off a mob
+    /// </summary>
+    [Export(PropertyHint.None, "suffix:m/s")]
+    public int BounceImpulse { get; set; } = 16;
 
     private Vector3 _targetVelocity = Vector3.Zero;
     
@@ -52,8 +64,28 @@ public partial class Player : CharacterBody3D
         {
             _targetVelocity.Y -= FallAcceleration * (float)delta;
         }
+        else if (IsOnFloor() && Input.IsActionJustPressed("jump"))
+        {
+            _targetVelocity.Y = JumpImpulse;
+        }
 
         Velocity = _targetVelocity;
         MoveAndSlide();
+        
+        for (var index = 0; index < GetSlideCollisionCount(); index++)
+        {
+            KinematicCollision3D collision = GetSlideCollision(index);
+
+            if (collision.GetCollider() is Mob mob)
+            {
+                if (Vector3.Up.Dot(collision.GetNormal()) > 0.1f)
+                {
+                    mob.Squash();
+                    _targetVelocity.Y = BounceImpulse;
+                    // Prevent further duplicate calls.
+                    break;
+                }
+            }
+        }
     }
 }
