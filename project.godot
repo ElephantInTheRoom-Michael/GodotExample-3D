@@ -15,6 +15,11 @@ run/main_scene="uid://mi508kn0ffh4"
 config/features=PackedStringArray("4.6", "C#", "Double Precision", "Forward Plus")
 config/icon="uid://nev7b6ohgeo"
 
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=540
+
 [dotnet]
 
 project/assembly_name="Squash The Creeps"
