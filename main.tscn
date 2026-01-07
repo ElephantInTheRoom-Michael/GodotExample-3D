@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bd2yu6rhe5vgl" path="res://Main.cs" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://brk1q8d1i4634" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cf6bs215oqybu" path="res://mob.tscn" id="2_h2yge"]
+[ext_resource type="FontFile" uid="uid://cyxhh7ddkn62q" path="res://3d_squash_the_creeps_starter/fonts/Montserrat-Medium.ttf" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://c2rwqfsu8svm6" path="res://ScoreLabel.cs" id="5_lquwl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(60, 2, 60)
@@ -22,6 +24,10 @@ _data = {
 "tilts": PackedFloat64Array(0, 0, 0, 0, 0, 0)
 }
 point_count = 6
+
+[sub_resource type="Theme" id="Theme_h2yge"]
+default_font = ExtResource("4_1bvp3")
+default_font_size = 22
 
 [node name="Main" type="Node" unique_id=21295323]
 script = ExtResource("1_0xm2m")
@@ -88,6 +94,49 @@ transform = Transform3D(0.6720089921135722, 0, 0.7405429862732481, 0, 1, 0, -0.7
 [node name="MobTimer" type="Timer" parent="." unique_id=961352830]
 wait_time = 0.5
 autostart = true
+
+[node name="UserInterface" type="Control" parent="." unique_id=1418086245]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_h2yge")
+
+[node name="ScoreLabel" type="Label" parent="UserInterface" unique_id=757445353]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 21.0
+offset_right = 90.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: 0"
+script = ExtResource("5_lquwl")
+
+[node name="Retry" type="ColorRect" parent="UserInterface" unique_id=1905178563]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.20392157)
+
+[node name="Label" type="Label" parent="UserInterface/Retry" unique_id=218835010]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -14.0
+offset_right = 107.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press Enter to retry"
 
 [connection signal="Hit" from="Player" to="." method="OnPlayerHit"]
 [connection signal="timeout" from="MobTimer" to="." method="OnMobTimerTimeout"]
