@@ -20,10 +20,10 @@ albedo_color = Color(1, 0.05882353, 1, 1)
 [sub_resource type="Curve3D" id="Curve3D_ig7tw"]
 closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -14.099941330466704, 0, -12.7950538158918, 0, 0, 0, 0, 0, 0, 14.08991843525442, 0, -12.7950538158918, 0, 0, 0, 0, 0, 0, 14.014945403962601, 0, 16.969239606957363, 0, 0, 0, 0, 0, 0, -14.099941330466704, 0, 16.89426657566555, 0, 0, 0, 0, 0, 0, -21.297352334480607, 0, 3.0992288179722367),
-"tilts": PackedFloat64Array(0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -14.099941330466704, 0, -12.7950538158918, 0, 0, 0, 0, 0, 0, 14.08991843525442, 0, -12.7950538158918, 0, 0, 0, 0, 0, 0, 14.014945403962601, 0, 16.969239606957363, 0, 0, 0, 0, 0, 0, -14.099941330466704, 0, 16.89426657566555),
+"tilts": PackedFloat64Array(0, 0, 0, 0)
 }
-point_count = 6
+point_count = 4
 
 [sub_resource type="Theme" id="Theme_h2yge"]
 default_font = ExtResource("4_1bvp3")
@@ -89,7 +89,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ig7tw")
 curve = SubResource("Curve3D_ig7tw")
 
 [node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath" unique_id=552272617]
-transform = Transform3D(0.6720089921135722, 0, 0.7405429862732481, 0, 1, 0, -0.7405429862732481, 0, 0.6720089921135722, 0, 0, 0)
+transform = Transform3D(2.832769448823989e-16, 0, -0.9999999999999997, 0, 1, 0, 0.9999999999999997, 0, 2.832769448823989e-16, -14.099941330466704, 0, -12.7950538158918)
 
 [node name="MobTimer" type="Timer" parent="." unique_id=961352830]
 wait_time = 0.5
