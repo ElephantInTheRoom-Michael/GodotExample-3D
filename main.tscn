@@ -50,7 +50,7 @@ transform = Transform3D(1, 0, 0, 0, -0.4999999999999998, 0.8660254037844387, 0, 
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=1234525862 instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.412566379668105, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34082167580949374, 0)
 collision_mask = 6
 
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=1541177262]
