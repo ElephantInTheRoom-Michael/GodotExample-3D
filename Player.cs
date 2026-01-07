@@ -27,6 +27,9 @@ public partial class Player : CharacterBody3D
     /// </summary>
     [Export(PropertyHint.None, "suffix:m/s")]
     public int BounceImpulse { get; set; } = 16;
+    
+    [Signal]
+    public delegate void HitEventHandler();
 
     private Vector3 _targetVelocity = Vector3.Zero;
     
@@ -87,5 +90,16 @@ public partial class Player : CharacterBody3D
                 }
             }
         }
+    }
+    
+    private void Die()
+    {
+        EmitSignal(SignalName.Hit);
+        QueueFree();
+    }
+
+    private void OnMobDetectorBodyEntered(Node3D body)
+    {
+        Die();
     }
 }
